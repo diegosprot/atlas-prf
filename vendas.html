@@ -61,6 +61,7 @@ h1{font-size:clamp(40px,4.9vw,65px);line-height:1.09;letter-spacing:-.056em}h1 e
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1039120772510777');
 fbq('track','PageView');
+window.__atlasPixelStatus={id:'1039120772510777',pageview:true,checkoutClicks:0};
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1039120772510777&ev=PageView&noscript=1" alt=""></noscript>
 <!-- /Meta Pixel -->
@@ -81,11 +82,30 @@ fbq('track','PageView');
 <div class="sticky"><a class="cta" href="https://pay.kiwify.com.br/DYYAhTu" rel="noopener noreferrer">GARANTIR ACESSO — R$ 37,00</a><small>Pagamento único • Checkout Kiwify</small></div>
 <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 <script>
-// Report the checkout intent before navigating to Kiwify; Purchase is sent by Kiwify after a paid order.
-document.querySelectorAll('a[href="https://pay.kiwify.com.br/DYYAhTu"]').forEach(function(link){
-  link.addEventListener('click',function(){
-    if(typeof window.fbq==='function') window.fbq('track','InitiateCheckout',{currency:'BRL',value:37.00});
+// Envie a intenção de checkout antes de navegar; não dispare Purchase aqui.
+(function(){
+  const checkoutURL='https://pay.kiwify.com.br/DYYAhTu';
+  document.querySelectorAll('a[href="'+checkoutURL+'"]').forEach(function(link){
+    link.addEventListener('click',function(event){
+      if(event.defaultPrevented || event.button!==0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      try {
+        if(typeof window.fbq==='function') window.fbq('track','InitiateCheckout',{content_name:'Atlas PRF Premium',currency:'BRL',value:37.00});
+        if(window.__atlasPixelStatus) window.__atlasPixelStatus.checkoutClicks++;
+      } catch(e) { console.warn('Falha ao registrar intenção de checkout:', e); }
+      // Pequeno intervalo para permitir que o beacon saia antes da mudança de página.
+      window.setTimeout(function(){window.location.assign(checkoutURL)},350);
+    });
   });
-});
+  // Diagnóstico opt-in: acrescente ?pixel_debug=1 à URL para exibir o estado local.
+  if(new URLSearchParams(location.search).has('pixel_debug')){
+    const panel=document.createElement('aside');
+    panel.style.cssText='position:fixed;left:12px;bottom:105px;z-index:99999;max-width:320px;padding:12px;border:1px solid #e5bd68;border-radius:12px;color:#fff;background:#101b2b;font:12px/1.5 system-ui;box-shadow:0 7px 30px #0008';
+    panel.setAttribute('aria-live','polite');
+    document.body.appendChild(panel);
+    function render(){ panel.textContent='Diagnóstico local do Pixel | ID: 1039120772510777 | PageView: comando executado | Cliques no checkout: '+(window.__atlasPixelStatus?.checkoutClicks||0)+' | Observação: isso não confirma contabilização na Meta.'; }
+    render(); document.querySelectorAll('a[href="'+checkoutURL+'"]').forEach(a=>a.addEventListener('click',render));
+  }
+})();
 </script>
 </body></html>
