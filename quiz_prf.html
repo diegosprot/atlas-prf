@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#09152e">
+  <meta name="description" content="Descubra um caminho prático para organizar seus treinos para a PRF com o Atlas PRF Premium.">
+  <title>Seu plano de treino | Atlas PRF Premium</title>
+  <style>
+    :root{color-scheme:dark;--bg:#071125;--card:#101e39;--edge:#26395c;--text:#f5f8ff;--muted:#aab8d0;--blue:#56a1ff;--cyan:#48e1d8;--gold:#ffd28b}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(ellipse 75% 42% at 50% -8%,#24467c 0%,transparent 74%),var(--bg);color:var(--text);min-height:100dvh}
+    .shell{max-width:560px;margin:0 auto;min-height:100dvh;padding:20px 18px max(30px,env(safe-area-inset-bottom));display:flex;flex-direction:column}
+    .brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.075em}
+    .mark{width:35px;height:35px;background:linear-gradient(145deg,#3076e9,#55e0e2);border-radius:12px;display:grid;place-items:center;color:#07152b;font-size:20px}
+    .brand small{display:block;color:#9cc5ff;font-size:10px;letter-spacing:.24em;margin-top:2px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .secure{color:#9daecc;font-size:11px;white-space:nowrap}
+    .stage{flex:1;display:flex;flex-direction:column;justify-content:center;padding:34px 0 22px}
+    .eyebrow{font-size:11px;letter-spacing:.14em;font-weight:800;color:#73c6ff;text-transform:uppercase}
+    .hero h1{font-size:clamp(33px,8.3vw,47px);letter-spacing:-.05em;line-height:1.08;margin:14px 0}
+    .grad{background:linear-gradient(100deg,#77baff,#50e6da);background-clip:text;color:transparent}
+    .subtitle{font-size:18px;line-height:1.6;color:var(--muted);margin:0 0 24px}
+    .glass{background:linear-gradient(140deg,rgba(30,51,91,.82),rgba(13,28,56,.95));border:1px solid var(--edge);border-radius:24px;box-shadow:0 20px 55px #02081377}
+    .welcome{padding:22px}.list-features{display:grid;gap:14px;margin:8px 0 23px}
+    .feature{display:flex;align-items:center;gap:10px;color:#e0eafa;font-size:15px}
+    .feature span:first-child{display:grid;place-items:center;background:#1b3559;border-radius:10px;min-width:34px;height:34px}
+    .btn{width:100%;min-height:56px;border:0;border-radius:15px;font:inherit;font-weight:800;font-size:16px;cursor:pointer;color:#051529;background:linear-gradient(100deg,#7db8ff,#51dedc);box-shadow:0 8px 30px #1684e322;transition:transform .15s,filter .15s;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+    .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}.btn:active{transform:scale(.99)}
+    .fine{font-size:12px;line-height:1.5;color:#899bb9;text-align:center}
+    .progress-head{display:flex;justify-content:space-between;color:#afbfda;font-size:12px;font-weight:700;margin-bottom:12px}
+    .track{height:7px;background:#233554;border-radius:30px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,#5397fa,#4ae0cd);border-radius:30px;transition:width .3s}
+    .qtitle{font-size:clamp(26px,7vw,34px);letter-spacing:-.035em;line-height:1.17;margin:24px 0 10px}
+    .qdesc{color:#a9bbd4;line-height:1.55;font-size:15px;margin:0 0 20px}
+    .options{display:grid;gap:11px}
+    .option{width:100%;text-align:left;min-height:68px;display:flex;align-items:center;gap:13px;padding:14px;border:1px solid #304466;border-radius:16px;background:#132341;color:#f6f9ff;font-size:16px;font-weight:650;line-height:1.35;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+    .option:hover,.option:focus-visible{background:#1d3459;border-color:#66adff;outline:0;transform:translateY(-1px)}
+    .num{width:32px;min-width:32px;height:32px;border-radius:9px;background:#203659;color:#b5d2ff;display:grid;place-items:center;font-size:12px;font-weight:800}
+    .nav{display:flex;justify-content:space-between;gap:15px;margin-top:20px}.back{color:#a9b9d0;border:0;background:none;padding:12px 0;font:inherit;font-size:14px;cursor:pointer}
+    .hint{font-size:12px;color:#8fa6c5;text-align:right;margin-left:auto;align-self:center}
+    .hidden{display:none!important}.fade{animation:rise .32s ease both}@keyframes rise{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .footer{color:#667d9b;font-size:11px;text-align:center;padding-top:16px;margin-top:auto}
+
+    /* Resultado mobile-first */
+    .result-screen{padding:14px 0 0;justify-content:flex-start;min-height:0}
+    .result-compact{width:100%;text-align:left;padding-bottom:0}
+    .result-check{font-size:11px;font-weight:850;letter-spacing:.12em;color:#89dccf;margin-bottom:9px}
+    .result-compact h1{font-size:clamp(29px,7.2vw,40px);letter-spacing:-.045em;line-height:1.09;margin:0 0 9px}
+    .result-intro{font-size:14px;line-height:1.42;color:#bdcce2;margin:0 0 14px}
+    .result-product{padding:17px 17px 12px;border-radius:20px;background:linear-gradient(145deg,#162a4c,#101d36);border:1px solid #344c75;box-shadow:0 12px 35px #02081366}
+    .product-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .product-icon{width:36px;height:36px;background:linear-gradient(120deg,#4284f6,#4ce4d6);color:#07152b;border-radius:10px;display:grid;place-items:center;font-size:23px}
+    .product-top strong{display:block;font-size:17px;letter-spacing:.01em}.product-top small{display:block;font-size:10px;letter-spacing:.045em;color:#9fc7ff;margin-top:2px}
+    .benefit{font-size:14px;line-height:1.3;color:#e3edfc;margin:8px 0}
+    .compact-offer{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:8px;margin:12px 0 0;border-top:1px solid #304663;padding-top:12px}
+    .compact-offer>span{font-weight:800;font-size:14px;line-height:1.35;min-width:0}.compact-offer span small{font-size:11px;color:#a9bbd3;font-weight:500}
+    .compact-offer>strong{display:inline-flex;align-items:baseline;flex-shrink:0;gap:1px;font-size:clamp(25px,7vw,30px);letter-spacing:-.035em;white-space:nowrap;line-height:1}.compact-offer>strong small{font-size:14px;letter-spacing:0}
+    .result-note{font-size:12px;color:#a9c0dc;text-align:center;margin:8px 0 0}
+    .result-action{position:sticky;z-index:10;bottom:0;width:100%;margin-top:14px;padding:0 0 calc(12px + env(safe-area-inset-bottom));background:#071125}
+    .result-action .btn{min-height:54px;font-size:16px}
+    .checkout-note{text-align:center;font-size:10px;color:#91a6c5;margin-top:8px}
+    body:has(.result-screen:not(.hidden)) .footer{display:none}
+    @media(min-width:700px){.shell{padding-top:30px}.stage{padding-top:55px}.welcome{padding:28px}.qtitle{margin-top:30px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+    @media(max-height:700px){.result-screen{padding-top:8px}.result-compact h1{font-size:clamp(26px,6.8vw,33px)}.result-intro{margin-bottom:9px;font-size:13px}.result-product{padding:12px 15px 9px}.product-top{margin-bottom:8px}.benefit{margin:5px 0;font-size:13px}.compact-offer{margin-top:8px;padding-top:8px}.result-note{display:none}}
+    @media(max-height:570px){.result-compact h1{font-size:25px}.result-intro{font-size:12px}.result-check{margin-bottom:4px}.benefit{font-size:12px}.product-top strong{font-size:15px}}
+  </style>
+  <!-- Meta Pixel | Atlas PRF Premium -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1039120772510777');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1039120772510777&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
+  <!-- End Meta Pixel -->
+</head>
+<body>
+ <main class="shell">
+  <header class="top">
+    <div class="brand"><div class="mark" aria-hidden="true">✦</div><div>ATLAS PRF <small>PREMIUM</small></div></div>
+    <span class="secure">🔒 Experiência segura</span>
+  </header>
+
+  <section id="welcome" class="stage fade">
+    <div class="hero">
+      <div class="eyebrow">Preparação para a PRF</div>
+      <h1>Quer conquistar uma vaga na PRF?<br><span class="grad">Como está seu treino?</span></h1>
+      <p class="subtitle">Responda 4 perguntas rápidas sobre sua preparação e veja uma sugestão prática para treinar melhor direto do celular.</p>
+    </div>
+    <div class="glass welcome">
+      <div class="list-features">
+        <div class="feature"><span>⚡</span> Menos de 1 minuto</div>
+        <div class="feature"><span>📱</span> Feito para responder pelo celular</div>
+        <div class="feature"><span>🎯</span> Uma sugestão de treino para sua rotina</div>
+      </div>
+      <button id="start" class="btn">Começar agora <span aria-hidden="true">→</span></button>
+      <p class="fine" style="margin:15px 0 0">Gratuito e sem cadastro. Este quiz não substitui o edital nem garante aprovação.</p>
+    </div>
+  </section>
+
+  <section id="question-screen" class="stage hidden" aria-live="polite">
+    <div class="progress-head"><span id="counter">Pergunta 1 de 4</span><span id="progress-text">25%</span></div>
+    <div class="track" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" id="progress"><div id="bar" class="fill"></div></div>
+    <div id="question-content" class="fade">
+      <div class="eyebrow" style="margin-top:34px">Seu momento de preparação</div>
+      <h1 id="question-title" class="qtitle"></h1>
+      <p id="question-desc" class="qdesc"></p>
+      <div id="options" class="options"></div>
+    </div>
+    <div class="nav"><button type="button" class="back" id="back">← Voltar</button><span class="hint">Escolha uma opção para continuar</span></div>
+  </section>
+
+  <section id="result" class="stage hidden result-screen" aria-label="Oferta Atlas PRF Premium">
+    <div class="result-compact fade">
+      <div class="result-check">✓ QUIZ CONCLUÍDO</div>
+      <h1>Agora é hora de <span class="grad">treinar sério.</span></h1>
+      <p class="result-intro">Prepare-se para a PRF com um aplicativo feito para praticar questões e simulados direto do celular.</p>
+      <div class="result-product">
+        <div class="product-top"><span class="product-icon" aria-hidden="true">✦</span><div><strong>ATLAS PRF</strong><small>PREMIUM · APLICATIVO DE ESTUDOS</small></div></div>
+        <div class="benefit">✓ Questões no estilo Certo ou Errado</div>
+        <div class="benefit">✓ Simulados com cronômetro</div>
+        <div class="benefit">✓ Revisão dos erros e painel de desempenho</div>
+        <div class="offer compact-offer"><span>Acesso imediato<br><small>Pagamento único</small></span><strong>R$ 37<small>,00</small></strong></div>
+      </div>
+      <p class="result-note">Comece seu próximo treino hoje, no seu ritmo.</p>
+    </div>
+    <div class="result-action"><a id="checkout" class="btn" href="https://pay.kiwify.com.br/DYYAhTu" rel="noopener noreferrer">Quero acessar o aplicativo <span aria-hidden="true">→</span></a><div class="checkout-note">Pagamento seguro pela Kiwify · Acesso digital</div></div>
+  </section>
+
+  <footer class="footer">© <span id="year"></span> Atlas PRF Premium • Plataforma independente</footer>
+ </main>
+
+ <script>
+  'use strict';
+  const data=[
+   {
+    title:'Você já começou a estudar para a PRF?',
+    desc:'Isso ajuda a entender em que fase da preparação você está hoje.',
+    options:[
+      ['Já estou estudando com frequência','já estudo com frequência'],
+      ['Comecei há pouco tempo','comecei há pouco tempo'],
+      ['Ainda vou começar','ainda vou começar']
+    ]
+   },
+   {
+    title:'Qual área mais merece sua atenção agora?',
+    desc:'Escolha a disciplina ou bloco em que você sente mais dificuldade.',
+    options:[
+      ['📘 Português','Português'],
+      ['⚖️ Legislação de Trânsito / Direito','Legislação e Direito'],
+      ['🧠 Raciocínio Lógico','Raciocínio Lógico'],
+      ['💻 Informática','Informática'],
+      ['🎯 Quero treinar tudo','todas as matérias']
+    ]
+   },
+   {
+    title:'O que mais atrapalha sua evolução?',
+    desc:'Não existe resposta certa. Escolha o ponto que mais pesa na sua rotina.',
+    options:[
+      ['Faço pouca prática de questões','pouca prática'],
+      ['Erro e não reviso direito','revisão dos erros'],
+      ['Não consigo manter constância','falta de constância'],
+      ['Tenho pouco tempo para estudar','pouco tempo']
+    ]
+   },
+   {
+    title:'Como você gostaria de treinar pelo celular?',
+    desc:'Escolha o recurso que mais ajudaria no seu dia a dia.',
+    options:[
+      ['Simulados com cronômetro','simulados com cronômetro'],
+      ['Questões separadas por disciplina','questões por disciplina'],
+      ['Revisão dos erros com mais clareza','revisão dos erros'],
+      ['Acompanhar meu desempenho','acompanhar desempenho']
+    ]
+   }
+  ];
+
+  let index=0;
+  let answers=[];
+  const $=id=>document.getElementById(id);
+
+  function show(which){
+    for(const id of ['welcome','question-screen','result']) $(id).classList.toggle('hidden',id!==which);
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+
+  function track(event,data={}){
+    if(typeof window.fbq==='function') window.fbq('trackCustom',event,data);
+  }
+
+  function render(){
+    show('question-screen');
+    const q=data[index];
+    $('counter').textContent=`Pergunta ${index+1} de ${data.length}`;
+    const pct=Math.round((index+1)/data.length*100);
+    $('progress-text').textContent=pct+'%';
+    $('bar').style.width=pct+'%';
+    $('progress').setAttribute('aria-valuenow',String(pct));
+    $('question-title').textContent=q.title;
+    $('question-desc').textContent=q.desc;
+    const options=$('options');
+    options.replaceChildren();
+    q.options.forEach(([label,value],n)=>{
+      const b=document.createElement('button');
+      b.type='button';
+      b.className='option';
+      const ix=document.createElement('span');
+      ix.className='num';
+      ix.textContent=String(n+1).padStart(2,'0');
+      const t=document.createElement('span');
+      t.textContent=label;
+      b.append(ix,t);
+      b.addEventListener('click',()=>choose(value));
+      options.append(b);
+    });
+    $('question-content').classList.remove('fade');
+    void $('question-content').offsetWidth;
+    $('question-content').classList.add('fade');
+    $('back').textContent=index===0?'← Início':'← Voltar';
+  }
+
+  function choose(value){
+    answers[index]=value;
+    if(index<data.length-1){ index++; render(); }
+    else { finish(); }
+  }
+
+  function finish(){
+    track('QuizPRFCompleted');
+    show('result');
+  }
+
+  $('start').addEventListener('click',()=>{
+    index=0; answers=[];
+    track('QuizPRFStarted');
+    render();
+  });
+
+  $('back').addEventListener('click',()=>{
+    if(index===0) show('welcome');
+    else { index--; render(); }
+  });
+
+  $('checkout').addEventListener('click',()=>track('QuizPRFCheckoutClick'));
+  $('year').textContent=new Date().getFullYear();
+ </script>
+</body>
+</html>
